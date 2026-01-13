@@ -683,6 +683,13 @@
             color: var(--text-muted);
         }
 
+        .about-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
         .about-img-box::before {
             content: '';
             position: absolute;
@@ -713,6 +720,27 @@
 
         .exp-badge span:last-child {
             font-size: 0.8rem;
+        }
+
+        .about-name {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .about-role {
+            display: block;
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .about-content p {
@@ -1036,6 +1064,16 @@
                 gap: 2rem;
             }
 
+            .hero-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero-cta a {
+                width: 100%;
+                justify-content: center;
+            }
+
             .about-highlights {
                 grid-template-columns: 1fr;
             }
@@ -1044,6 +1082,54 @@
             .cursor-follower {
                 display: none;
             }
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu a {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            transition: color 0.3s;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
         }
     </style>
 </head>
@@ -1076,6 +1162,15 @@
             <span></span><span></span><span></span>
         </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#home">Home</a>
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1120,84 +1215,88 @@
             <!-- Project 1 -->
             <div class="project-card reveal">
                 <div class="project-img">
-                    <img src="images/host 1.jpg"
-                        alt="Fintech Mobile App">
+                    <img src="images/host 1.jpg" alt="Fintech Mobile App">
                 </div>
                 <div class="project-info">
-                    <div class="project-tags"><span>Pickadspace</span><span>UI/UX</span></div>
-                    <h3>mobile advertising made simple</h3>
+                    <div class="project-tags"><span>Advertising</span><span>UI/UX</span></div>
+                    <h3>Pickadspace mobile app</h3>
                     <p>I handled the complete UI/UX design process, from user flows to final visual design, with a
                         strong focus on usability and modern aesthetics.</p>
-                    <a href="#" class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://www.behance.net/gallery/239825909/PickAdSpace-Mobile-Advertising-Made-Simple"
+                        class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Project 2 -->
             <div class="project-card reveal">
                 <div class="project-img">
-                    <img src="images/host 1.jpg" alt="E-commerce Redesign">
+                    <img src="images/beh 1.jpg" alt="E-commerce Redesign">
                 </div>
                 <div class="project-info">
-                    <div class="project-tags"><span>Web Design</span><span>E-commerce</span></div>
-                    <h3>E-commerce Redesign</h3>
-                    <p>Complete redesign for a luxury fashion brand with improved conversion rates.</p>
+                    <div class="project-tags"><span>Travel</span><span>UI/UX</span></div>
+                    <h3>Luxeway Travel Website</h3>
+                    <p>Luxeway is a modern travel platform that makes planning trips seamless and enjoyable. Discover
+                        destinations.</p>
                     <a href="#" class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Project 3 -->
             <div class="project-card reveal">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop"
-                        alt="Analytics Dashboard">
+                    <img src="images/host 2.jpg" alt="Analytics Dashboard">
                 </div>
                 <div class="project-info">
                     <div class="project-tags"><span>Dashboard</span><span>SaaS</span></div>
-                    <h3>Analytics Dashboard</h3>
-                    <p>Data visualization platform for enterprise clients with real-time insights.</p>
-                    <a href="#" class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
+                    <h3>Livespace Home&Apartment app</h3>
+                    <p>A modern, minimal app design that makes finding and managing homes effortless and visually
+                        engaging.</p>
+                    <a href="https://www.behance.net/gallery/241289129/Livespace-Home-Apartment-App-Dashboard-UI-Design"
+                        class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Project 4 -->
             <div class="project-card reveal">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop"
-                        alt="Health & Fitness App">
+                    <img src="images/host 3.jpg" alt="Health & Fitness App">
                 </div>
                 <div class="project-info">
-                    <div class="project-tags"><span>Health</span><span>Mobile</span></div>
-                    <h3>Health & Fitness App</h3>
-                    <p>Wellness tracking app with personalized insights and workout plans.</p>
-                    <a href="#" class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
+                    <div class="project-tags"><span>Fashion</span><span>website clone</span></div>
+                    <h3>ZARA Website Clone</h3>
+                    <p></p>
+                    <p>A clean, minimal UI design focused on effortless browsing and a modern shopping experience.</p>
+                    <a href="https://www.behance.net/gallery/240260225/ZARA-Website-Clone-Minimal-Fashion-UI"
+                        class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Project 5 -->
             <div class="project-card reveal">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop"
-                        alt="Travel Booking Platform">
+                    <img src="images/Host 4.jpg" alt="Travel Booking Platform">
                 </div>
                 <div class="project-info">
-                    <div class="project-tags"><span>Web App</span><span>Travel</span></div>
-                    <h3>Travel Booking Platform</h3>
-                    <p>End-to-end travel booking experience with AI-powered recommendations.</p>
-                    <a href="#" class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
+                    <div class="project-tags"><span>log in ui</span><span>music</span></div>
+                    <h3>Soundify – Music App Login UI</h3>
+                    <p>A clean, minimal login screen designed for smooth and effortless user onboarding.</p>
+                    <a href="https://www.behance.net/gallery/240754127/Soundify-Music-App-Login-UI"
+                        class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
             <!-- Project 6 -->
             <div class="project-card reveal">
                 <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop"
-                        alt="Food Delivery App">
+                    <img src="images/host 5.jpg" alt="Food Delivery App">
                 </div>
                 <div class="project-info">
                     <div class="project-tags"><span>Mobile</span><span>Food Tech</span></div>
-                    <h3>Food Delivery App</h3>
-                    <p>Fast and intuitive food ordering experience with real-time tracking.</p>
+                    <h3>Walld – Website UI
+                    </h3>
+                    <p>A minimal, clean design for smooth and effortless browsing.</p>
                     <a href="#" class="btn-view">View Project <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
         <div class="work-cta">
-            <a href="#" class="btn-view-more">View More Projects <i class="fas fa-arrow-right"></i></a>
+            <a href="https://www.behance.net/akhilraj106" class="btn-view-more">View More Projects <i
+                    class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -1209,15 +1308,25 @@
         </div>
         <div class="about-grid">
             <div class="about-img reveal">
-                <div class="about-img-box"><i class="fas fa-user"></i></div>
+                <div class="about-img-box"><img src="images/host pro pic.jpeg" alt="Akhil Raj - UI/UX Designer"></div>
                 <div class="exp-badge"><span>1+</span><span>Years Exp</span></div>
             </div>
             <div class="about-content reveal">
-                <p>I'm a passionate UI/UX Designer with 1+ years of hands-on experience and 4 months of internship
-                    exposure, crafting modern, user-friendly digital products. I love designing interfaces that feel
-                    simple, purposeful, and visually refined.</p>
-                <p>My approach blends research, design thinking, and aesthetics to create experiences users enjoy and
-                    businesses trust.</p>
+                <h2 class="about-name">Akhilraj</h2>
+                <span class="about-role">UI/UX Designer</span>
+                <p>I’m a passionate UI/UX Designer with over 1 year of hands-on experience and 4 months of internship
+                    exposure, dedicated to creating digital products that are both visually appealing and highly
+                    functional. I specialize in crafting modern, user-friendly interfaces that balance aesthetics with
+                    usability, ensuring every interaction feels intuitive and meaningful.
+
+                    My design process combines research, empathy, and design thinking to understand user needs, identify
+                    pain points, and deliver solutions that not only delight users but also drive business goals. I
+                    enjoy turning complex problems into simple, elegant experiences through thoughtful layouts, clear
+                    visual hierarchy, and purposeful interactions.
+
+                    I believe good design is more than just visuals—it’s about creating experiences that users trust,
+                    enjoy, and remember. Every project I work on is an opportunity to explore creativity while keeping
+                    functionality and user satisfaction at the forefront.</p>
                 <div class="about-highlights">
                     <div class="highlight"><i class="fas fa-check-circle"></i><span>User Research & Testing</span></div>
                     <div class="highlight"><i class="fas fa-check-circle"></i><span>Wireframing & Prototyping</span>
@@ -1226,7 +1335,8 @@
                     </div>
                     <div class="highlight"><i class="fas fa-check-circle"></i><span>Design Systems</span></div>
                 </div>
-                <a href="#" class="btn-primary"><span>Download Resume</span><i class="fas fa-download"></i></a>
+                <a href="images/Akhil Raj.pdf" class="btn-primary" download><span>Download Resume</span><i
+                        class="fas fa-download"></i></a>
             </div>
         </div>
     </section>
@@ -1240,21 +1350,21 @@
         <div class="skills-grid">
             <div class="skill-card reveal">
                 <div class="skill-icon"><i class="fas fa-palette"></i></div>
-                <h3>Design Tools</h3>
+                <h3>i/ux Designing</h3>
                 <div class="skill-bar">
-                    <div class="skill-bar-header"><span>Figma</span><span>95%</span></div>
+                    <div class="skill-bar-header"><span>Figma</span><span>99%</span></div>
                     <div class="skill-bar-track">
                         <div class="skill-bar-fill" data-percent="95"></div>
                     </div>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-bar-header"><span>Adobe XD</span><span>90%</span></div>
+                    <div class="skill-bar-header"><span>Adobe XD</span><span>98%</span></div>
                     <div class="skill-bar-track">
                         <div class="skill-bar-fill" data-percent="90"></div>
                     </div>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-bar-header"><span>Sketch</span><span>85%</span></div>
+                    <div class="skill-bar-header"><span>Adobe illustrator</span><span>85%</span></div>
                     <div class="skill-bar-track">
                         <div class="skill-bar-fill" data-percent="85"></div>
                     </div>
@@ -1262,23 +1372,23 @@
             </div>
             <div class="skill-card reveal">
                 <div class="skill-icon"><i class="fas fa-code"></i></div>
-                <h3>Development</h3>
+                <h3>Graphic designing</h3>
                 <div class="skill-bar">
-                    <div class="skill-bar-header"><span>HTML/CSS</span><span>92%</span></div>
+                    <div class="skill-bar-header"><span>Adobe photoshop</span><span>92%</span></div>
                     <div class="skill-bar-track">
                         <div class="skill-bar-fill" data-percent="92"></div>
                     </div>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-bar-header"><span>JavaScript</span><span>80%</span></div>
+                    <div class="skill-bar-header"><span>inkscape</span><span>80%</span></div>
                     <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-percent="80"></div>
+                        <div class="skill-bar-fill" data-percent="90"></div>
                     </div>
                 </div>
                 <div class="skill-bar">
-                    <div class="skill-bar-header"><span>React</span><span>75%</span></div>
+                    <div class="skill-bar-header"><span>Canva</span><span>99%</span></div>
                     <div class="skill-bar-track">
-                        <div class="skill-bar-fill" data-percent="75"></div>
+                        <div class="skill-bar-fill" data-percent="100"></div>
                     </div>
                 </div>
             </div>
@@ -1337,9 +1447,11 @@
                 </div>
                 <div class="social-links">
                     <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.behance.net/akhilraj106" class="social-link"><i class="fab fa-behance"></i></a>
+                    <a href="https://www.linkedin.com/in/akhil-raj-b15945332?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/livingthings_._?igsh=MXN2YzF2bWRlZDE3aQ==" class="social-link"><i
+                            class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
@@ -1514,9 +1626,20 @@
         });
 
         // ===== HAMBURGER MENU =====
-        document.getElementById('hamburger').addEventListener('click', function () {
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function () {
             this.classList.toggle('active');
-            // Add mobile menu logic here
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
         });
     </script>
 </body>
